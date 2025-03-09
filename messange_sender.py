@@ -1,4 +1,3 @@
-# chat_id = 600653321
 import telegram
 import os
 import pprint

@@ -1,6 +1,5 @@
 import requests
 import time
-import pprint
 import os
 import telegram
 from dotenv import load_dotenv
@@ -22,7 +21,6 @@ def get_review_status(url, token, bot, chat_id, updates):
             response.raise_for_status()
             response = response.json()
             status = response['status']
-            pprint.pprint(response)
             if status == 'found':
                 lesson_title = response['new_attempts'][0]['lesson_title']
                 lesson_url = response['new_attempts'][0]['lesson_url']
@@ -44,7 +42,6 @@ def get_review_status(url, token, bot, chat_id, updates):
                         response = requests.get(url, headers=headers, params=payload)
                         response.raise_for_status()
                         response = response.json()
-                        pprint.pprint(response)
                         timestamp = response['timestamp_to_request']
                         continue
                     except:
