@@ -1,6 +1,5 @@
 import telegram
 import os
-import pprint
 from dotenv import load_dotenv
 
 
