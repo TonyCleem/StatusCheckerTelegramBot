@@ -7,9 +7,7 @@ from messange_sender import send_messange_via_tg_bot
 
 
 def get_review_status(token_devman, telegram_token, chat_id):
-    url_long_polling = 'https://dvmn.org/api/long_polling/'
-    bot = telegram.Bot(token=telegram_token)
-    updates = bot.get_updates()
+    url = 'https://dvmn.org/api/long_polling/'
     text = ''
     timestamp = None
     headers = {
@@ -20,7 +18,7 @@ def get_review_status(token_devman, telegram_token, chat_id):
     }
     while True:
         try:
-            response = requests.get(url_long_polling, headers=headers)
+            response = requests.get(url, headers=headers)
             response.raise_for_status()
             response = response.json()
             status = response['status']
