@@ -3,7 +3,7 @@ import time
 import os
 import telegram
 from dotenv import load_dotenv
-from messange_sender import send_messange_via_tg_bot
+from message_sender import send_message_via_tg_bot
 
 
 def get_review_status(token_devman, telegram_token, chat_id):
@@ -34,7 +34,7 @@ def get_review_status(token_devman, telegram_token, chat_id):
                     f"Ссылка на урок - {str(lesson_url)}\n"
                     f"Статус проверки - {status_review}"
                 )
-                send_messange_via_tg_bot(telegram_token, chat_id, text)
+                send_message_via_tg_bot(telegram_token, chat_id, text)
 
             if status == 'timeout':
                 timestamp = response['timestamp_to_request']
